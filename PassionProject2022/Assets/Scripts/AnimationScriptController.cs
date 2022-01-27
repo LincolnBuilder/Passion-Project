@@ -10,22 +10,21 @@ public class AnimationScriptController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        Debug.Log(animator);
         isWalkingHash = Animator.StringToHash("isWalking");
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool isWalking = animator.GetBool("isWalkingHash");
+        bool isWalking = animator.GetBool(isWalkingHash);
         bool forwardPressed = Input.GetKey("w");
         if (!isWalking && forwardPressed)
         {
-            animator.SetBool("isWalking", true);
+            animator.SetBool(isWalkingHash, true);
         }
         if (isWalking && !forwardPressed)
         {
-            animator.SetBool("isWalkingHash", false);
+            animator.SetBool(isWalkingHash, false);
         }
     }
 }
