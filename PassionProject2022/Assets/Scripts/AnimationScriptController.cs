@@ -5,23 +5,27 @@ using UnityEngine;
 public class AnimationScriptController : MonoBehaviour
 {
     Animator animator;
+    int isWalkingHash;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         Debug.Log(animator);
+        isWalkingHash = Animator.StringToHash("isWalking");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("w"))
+        bool isWalking = animator.GetBool("isWalkingHash");
+        bool forwardPressed = Input.GetKey("w");
+        if (!isWalking && forwardPressed)
         {
             animator.SetBool("isWalking", true);
         }
-        if (!Input.GetKey("w"))
+        if (isWalking && !forwardPressed)
         {
-            animator.SetBool("isWalking", false);
+            animator.SetBool("isWalkingHash", false);
         }
     }
 }
