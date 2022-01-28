@@ -18,6 +18,7 @@ public class AnimationScriptController : MonoBehaviour
     {
         bool isWalking = animator.GetBool(isWalkingHash);
         bool forwardPressed = Input.GetKey("w");
+        bool runPressed = Input.GetKey("")
         if (!isWalking && forwardPressed)
         {
             animator.SetBool(isWalkingHash, true);
