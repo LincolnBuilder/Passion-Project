@@ -26,9 +26,10 @@ public class AnimationScriptController : MonoBehaviour
         {
             animator.SetBool(isWalkingHash, true);
         }
-        if (isWalking && !forwardPressed | leftPressed | backPressed | rightPressed)
+        /*else
         {
             animator.SetBool(isWalkingHash, false);
-        }
+        }*/
+
     }
 }
